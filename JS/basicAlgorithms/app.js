@@ -8,7 +8,7 @@
 
 let myFavoriteHero = "Hulk"; 
 
-//1.2
+//1.2 - 
 
 let x = 50
 
