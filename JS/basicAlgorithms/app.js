@@ -8,7 +8,7 @@
 
 let myFavoriteHero = "Hulk"; 
 
-//1.2 - 
+//1.2 
 
 let x = 50
 
@@ -66,11 +66,7 @@ const toy2 = {name: 'Rallo mcKing', price: 29};
 
 //console.log(toy1.price + toy2.price)
 
-/* 
-//1.4  actualiza el valor de la variable globalBasePrice a 25000 . 
-actualiza la propiedad finalPrice de todos los coches con el valor de su propiedad basePrice 
-
-*/
+//1.4   
 
 let globalBasePrice = 25000;
 const car1 = {name: 'BMW m&m', basePrice: 50000, finalPrice: 60000};
@@ -106,7 +102,6 @@ let div = 10/2
 
 const remainder = 15%9
 
-
 //1.4 
 
 p = 10 
@@ -114,7 +109,7 @@ j = 5
 o = j + p
 //console.log(o)
 
-// 1.5 Usa el correcto operador de asignación que resultará en i = 50, teniendo dos variables c = 10 y m = 5.
+// 1.5 
 
 c = 10 
 m = 5 
@@ -148,13 +143,42 @@ const rickAndMortyCharacters = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lap
 //1.1 
 
 const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
-//console.log(avengers[0])
+//console.log(avengers[0]) 
 
 //1.2 
 
-avengers [0] = "IRONMAN"
+avengers [0] = "IRONMAN" 
 //console.log(avengers[0])
 
-//1.3
+//1.3 
+
+console.log(avengers.length)
+
+//1.4 
+
+const rickAndMortyCharacters = ["Rick", "Beth", "Jerry"];
+
+const twoMore = rickAndMortyCharacters.push("Morty","Summer")
+const threeMore = rickAndMortyCharacters.pop()
+
+console.log(rickAndMortyCharacters)
+console.log(threeMore)
+
+//1.5 
+
+/*
+rickAndMortyCharacters = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lapiz Lopez"];
+const fourr = rickAndMortyCharacters.shift()
+const fivee = rickAndMortyCharacters.pop()
+
+console.log(fourr, fivee)
+
+*/
+
+//1.6 
+
+const fourr = rickAndMortyCharacters[1]
+console.log(fourr)
+
 
 
