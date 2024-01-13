@@ -84,11 +84,21 @@ const toy2 = {name: 'Rallo mcKing', price: 29};
 
 let globalBasePrice = 25000;
 
-const car1 = 
-{name: 'BMW m&m', basePrice: 50000, finalPrice: 60000};
+const car1 = {
+  name: 'BMW m&m', 
+  basePrice: 50000, 
+  finalPrice: 60000
+};
+
+let NewFinalPrice = globalBasePrice + car1.basePrice
+car1.finalPrice = NewFinalPrice
+
 const car2 = {name: 'Chevrolet Corbina', basePrice: 70000, finalPrice: 80000};
 
-console.log(globalBasePrice)
+car2.finalPrice = globalBasePrice + car2.basePrice
+
+console.log(car2.finalPrice)
+
 
 /* 3 ----------------------------------------------------------------------------------------------
 
@@ -257,7 +267,17 @@ y cambia el mensaje en la décima vuelta a 'Dormido!'.
 
 //! 1.1 Crea un bucle for que vaya desde 0 a 9 y muestralo por consola.
 
+for (let y = 0; y <= 9; y++) console.log(y);
+
 //!1.2
 
+for (let i=0; i <=9; i++) if (i % 2 !== 0) console.log(i)
+
 //!1.3 
+
+for (let i=2; i <=10; i++) {
+  console.log("Intentando dormir 🐑!")
+  if (i == 10) console.log("Dormido!")
+}
+
 
