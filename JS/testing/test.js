@@ -1,16 +1,27 @@
-//!Iteración #5: Calcular promedio de strings
-/*Crea una función que reciba por parámetro un array 
-y cuando es un valor number lo sume y de lo contrario 
-cuente la longitud del string y lo sume. 
-Puedes usar este array para probar tu función:*/
 
-const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub'];
-function averageWord(param) {
-    stringElements=""
-    numberElements= 0   
-    for (let i = 0; i < mixedElements.length; i++) 
-    if (mixedElements[i]typeof == string )
-    numberElements = mixedElements[i]
-}
+
+//! 1.1 
+
+const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
+//console.log(avengers[0]) 
+
+//! 1.2 
+
+avengers [0] = "IRONMAN" 
+//console.log(avengers[0])
+
+//! 1.3 
+
+console.log(avengers.length)
+
+//! 1.4 
+
+const rickAndMortyCharacters = ["Rick", "Beth", "Jerry"];
+
+const twoMore = rickAndMortyCharacters.push("Morty","Summer")
+const threeMore = rickAndMortyCharacters.pop()
+
+console.log(rickAndMortyCharacters)
+console.log(threeMore)
 
 
