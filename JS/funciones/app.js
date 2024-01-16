@@ -37,10 +37,11 @@ const findLongestWord = (param) => {
     console.log(`Resultado de la iteración 2: ${resultIteration2}`)
 
 
-//!Iteración #3: Calcular la suma
+//!Iteración #3: Calcular la suma 
 /* Calcular una suma puede ser tan simple como iterar sobre un array y sumar cada uno de los elementos.
 Implemente la función denominada sumNumbers que toma un array de números como argumento y devuelve la suma de todos los números de la matriz. 
 Puedes usar este array para probar tu función: */
+//? prueba usar "reduce()""
 
 const numbers = [1, 2, 3, 5, 45, 37, 58];
 
@@ -102,65 +103,42 @@ console.log(`Resultado de la iteración 5: ${result}`)
 
 //!Iteración #6: Valores únicos
 /*Crea una función que reciba por parámetro un array y compruebe si existen elementos duplicados, 
-en caso que existan los elimina para retornar un array sin los elementos duplicados. 
-Puedes usar este array para probar tu función: */
+en caso que existan los elimina para retornar un array sin los elementos duplicados. */
 
 const duplicates = [
-  'sushi',
-  'pizza',
-  'burger',
-  'potatoe',
-  'pasta',
-  'ice-cream',
-  'pizza',
-  'chicken',
-  'onion rings',
-  'pasta',
-  'soda'
-];
-function removeDuplicates(param) {
-  
+    'sushi',
+    'pizza',
+    'burger',
+    'potatoe',
+    'pasta',
+    'ice-cream',
+    'pizza',
+    'chicken',
+    'onion rings',
+    'pasta',
+    'soda'
+  ];
+
+  const  removeDuplicates = (param) => {
+    const newArray = []
+
+    for (let i = 0; i < duplicates.length; i++) {
+      if (!newArray.includes(duplicates[i])){
+        newArray.push(duplicates[i]);
+      }
+    }
+return newArray
 }
 
+let resultIteration6 = removeDuplicates(duplicates)
+console.log("🚀 ~ resultIteration6:", resultIteration6)
+
+/** 
+ * 1- We declare a variable for the new array (newArray) where we will store the unique values 
+ * 2- Then we do a `for loop` to iterate though the items in the arrway "duplicates"
+ * 3- We then write a condition that checks weather the current element, newArray, is already in the array but using method `Includes()`
+ * 4- If not `!`, it adds the element to resultArray using `push()`.
+ */
 
 
-​/*
-Iteración #7: Buscador de nombres
-Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - comprueba si existe el elemento, en caso que existan nos devuelve un true y la posición de dicho elemento y por la contra un false. Puedes usar este array para probar tu función:
-const nameFinder = [
-  'Peter',
-  'Steve',
-  'Tony',
-  'Natasha',
-  'Clint',
-  'Logan',
-  'Xabier',
-  'Bruce',
-  'Peggy',
-  'Jessica',
-  'Marc'
-];
-function finderName(param) {
-  // insert code
-}
-​
-Iteration #8: Contador de repeticiones
-Crea una función que nos devuelva el número de veces que se repite cada una de las palabras que lo conforma.  Puedes usar este array para probar tu función:
-const counterWords = [
-  'code',
-  'repeat',
-  'eat',
-  'sleep',
-  'code',
-  'enjoy',
-  'sleep',
-  'code',
-  'enjoy',
-  'upgrade',
-  'code'
-];
-function repeatCounter(param) {
-  // insert code
-}
 
-*/
