@@ -11,7 +11,7 @@ function sum(numberOne, numberTwo) {
   
   let resultIteration1 = sum(numberOne,numberTwo) 
 
-  //!Iteración #2: Buscar la palabra más larga
+//!Iteración #2: Buscar la palabra más larga
 /*Completa la función que tomando un array de strings como argumento devuelva el más largo, 
 en caso de que dos strings tenga la misma longitud deberá devolver el primero.
 Puedes usar este array para probar tu función: */
@@ -73,14 +73,38 @@ let resultIteration4 = resultSum1 / numberss.length
 console.log(`Resultado de la iteración 4: ${resultIteration4}`)
 
 //!Iteración #5: Calcular promedio de strings
-/*Crea una función que reciba por parámetro un array 
-y cuando es un valor number lo sume y de lo contrario 
-cuente la longitud del string y lo sume. 
-Puedes usar este array para probar tu función:*/
+/* Crea una función que reciba por parámetro un array y cuando es un valor number lo sume y de lo contrario 
+cuente la longitud del string y lo sume. Puedes usar este array para probar tu función: */
 
-/*
-Iteración #6: Valores únicos
-Crea una función que reciba por parámetro un array y compruebe si existen elementos duplicados, en caso que existan los elimina para retornar un array sin los elementos duplicados. Puedes usar este array para probar tu función:
+
+const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub'];
+
+const averageWord = (array) => {
+    let sumNumbers = 0
+    let sumStrings = 0
+    let counterString = 0
+ 
+for (let i = 0; i < array.length; i++) { 
+  if (typeof array[i] === "number"){
+        sumNumbers += array[i]; 
+  } else {
+    counterString++ 
+    sumStrings += array[i].length
+        }
+  }
+  return [sumNumbers, sumStrings]
+}
+
+let result = averageWord(mixedElements)
+//let resultSumNumbers = 
+console.log(`Resultado de la iteración 5: ${result}`)
+
+
+//!Iteración #6: Valores únicos
+/*Crea una función que reciba por parámetro un array y compruebe si existen elementos duplicados, 
+en caso que existan los elimina para retornar un array sin los elementos duplicados. 
+Puedes usar este array para probar tu función: */
+
 const duplicates = [
   'sushi',
   'pizza',
@@ -95,9 +119,12 @@ const duplicates = [
   'soda'
 ];
 function removeDuplicates(param) {
-  // insert code
+  
 }
-​
+
+
+
+​/*
 Iteración #7: Buscador de nombres
 Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - comprueba si existe el elemento, en caso que existan nos devuelve un true y la posición de dicho elemento y por la contra un false. Puedes usar este array para probar tu función:
 const nameFinder = [

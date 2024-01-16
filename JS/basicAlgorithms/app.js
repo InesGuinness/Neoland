@@ -1,6 +1,3 @@
-// !
-// ?
-// *
 
 /* 1 ----------------------------------------------------------------------------------------------
 
@@ -94,7 +91,6 @@ const car2 = {name: 'Chevrolet Corbina', basePrice: 70000, finalPrice: 80000};
 car2.finalPrice = car2.basePrice + globalBasePrice
 console.log(`2.4b - ${car2.finalPrice}`)
 
-
 /* 3 ----------------------------------------------------------------------------------------------
 
 ITERACIÓN 3
@@ -141,32 +137,6 @@ c = 10
 m = 5 
 i = c * m 
 console.log(`3.5 - ${i}`)
-
-
-/* 4 ----------------------------------------------------------------------------------------------
-
-ITERACIÓN 4
-
-1.1 Consigue el valor "HULK" del array de avengers y muestralo por consola.
-const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
-
-1.2 Cambia el primer elemento de avengers a "IRONMAN"
-const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
-
-1.3 console numero de elementos en el array usando la propiedad correcta de Array.
-const avengers = ["HULK", "SPIDERMAN", "BLACK PANTHER"];
-
-1.4 Añade 2 elementos al array: "Morty" y "Summer". 
-Muestra en consola el último personaje del array
-const rickAndMortyCharacters = ["Rick", "Beth", "Jerry"];
-
-1.5 Elimina el último elemento del array y muestra el primero y el último por consola.
-const rickAndMortyCharacters = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lapiz Lopez"];
-
-1.6 Elimina el segundo elemento del array y muestra el array por consola.
-const rickAndMortyCharacters = ["Rick", "Beth", "Jerry", "Morty", "Summer", "Lapiz Lopez"];
-
----------------------------------------------------------------------------------------------- */ 
 
 /* 4 ----------------------------------------------------------------------------------------------
 
@@ -229,8 +199,6 @@ console.log(`4.5 - primero: ${fourr}, último: ${fivee}`)
 const removeSecondElement = rickAndMortyCharacters.splice(1, 1)
 console.log(`4.6 - ${removeSecondElement}`)
 
-
-
 /* 5 ----------------------------------------------------------------------------------------------
 
 ITERACIÓN 5
@@ -266,7 +234,7 @@ if (number2/2 == number1 ||  number1/5 == number3) {
   console.log("number2 entre 2 es igual a number1 O number1 entre 5 es igual a number3");
 }
 
-/* ----------------------------------------------------------------------------------------------
+/* 6 ----------------------------------------------------------------------------------------------
 
 ITERACIÓN 6
 
