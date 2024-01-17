@@ -16,7 +16,7 @@ const filterProductss = products.filter((products)=> {
     return products == "Camiseta"
 })
 
-//? with .filter() and == operator 
+//? `for ... of` loop combined with `includes()` method
 let newProductList = [];
 
 for (const product of products) {
@@ -27,3 +27,30 @@ for (const product of products) {
 
 console.log("🚀 ~ newProductList:", newProductList);
 
+//!Iteración #2: Condicionales avanzados
+/* Comprueba en cada uno de los usuarios que tenga al menos dos trimestres aprobados y
+añade la propiedad isApproved a true o false en consecuencia. */
+
+const alumns = [
+    {name: 'Pepe Viruela', T1: false, T2: false, T3: true}, 
+    {name: 'Lucia Aranda', T1: true, T2: false, T3: true},
+    {name: 'Juan Miranda', T1: false, T2: true, T3: true},
+    {name: 'Alfredo Blanco', T1: false, T2: false, T3: false},
+    {name: 'Raquel Benito', T1: true, T2: true, T3: true}
+  ]
+
+  // if T1, T2, T3, have at least two true then isApproved is true 
+  
+  alumns.forEach((alumns)=>{
+    alumns.isApproved = true // true or false depending on a condition 
+  })
+  
+  console.log("🚀 ~ alumns:", alumns)
+
+// if at least two "true" inside an object then print isApproved
+
+//donde objeto es el objeto que recorremos (cada alumno en nuestro caso)
+
+//isApproved --- es la propiedad queremos definir o modificar 
+
+// true ---- es el valor que le asignamos a la propiedad 
