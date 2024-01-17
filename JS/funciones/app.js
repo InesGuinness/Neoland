@@ -177,5 +177,4 @@ console.log("🚀 ~ resultIteration7:", resultIteration7)
 - are we going to use a method? is there an operator that can help us with this? 
 Loop should be regular for because we want the 
 consition should be if return Boolean ,   
-
 */

@@ -39,18 +39,55 @@ const alumns = [
     {name: 'Raquel Benito', T1: true, T2: true, T3: true}
   ]
 
-  // if T1, T2, T3, have at least two true then isApproved is true 
+  alumns.forEach((alumn) => {
+    if ((alumn.T1 && alumn.T2) || (alumn.T2 && alumn.T3) || (alumn.T1 && alumn.T3)) {
+      alumn.isApproved = true;
+    } else {alumn.isApproved = false}
+    console.log("🚀 ~ alumns.forEach ~ alumns:", alumn.isApproved)
+  });
+
+//! Iteración #3: Probando For...of
+/* Usa un bucle forof para recorrer todos los destinos del array. Imprime en un console.log sus valores. */
+
+const placesToTravel = ['Japon', 'Venecia', 'Murcia', 'Santander', 'Filipinas', 'Madagascar']
+
+for (const placeElement of placesToTravel) {
+    console.log(placeElement);
+  }
+
+//! Iteración #4: Probando For...in
+/* Usa un for...in para imprimir por consola los datos del alienígena.. Puedes usar este objeto:. */
+
+const alien = {
+    name: 'Wormuck',
+    race: 'Cucusumusu',
+    planet: 'Eden',
+    weight: '259kg'
+}
+
+for ( alienKey in alien ) {
+    console.log("🚀 ~ alienKey:", alienKey.name)
+}
+
+//! Iteración #5: Probando For 
+/* Usa un bucle for para recorrer todos los destinos del array y elimina los elementos que tengan el id 11 y 40. 
+Imprime en un console log el array. Puedes usar este array: */
+
+const placesToTravel1 = [{id: 5, name: 'Japan'}, {id: 11, name: 'Venecia'}, {id: 23, name: 'Murcia'}, {id: 40, name: 'Santander'}, {id: 44, name: 'Filipinas'}, {id: 59, name: 'Madagascar'}]
+
+const myFunction = (param) => {
+    let newArray = placesToTravel1.filter((place) => place.id !== 11 && place.id !== 40);
+    return newArray;
+  };
   
-  alumns.forEach((alumns)=>{
-    alumns.isApproved = true // true or false depending on a condition 
-  })
-  
-  console.log("🚀 ~ alumns:", alumns)
+  const result = myFunction(placesToTravel1);
+  console.log(result);
 
-// if at least two "true" inside an object then print isApproved
+/*
 
-//donde objeto es el objeto que recorremos (cada alumno en nuestro caso)
-
-//isApproved --- es la propiedad queremos definir o modificar 
-
-// true ---- es el valor que le asignamos a la propiedad 
+const function = ( param) => {
+    let newArray = []
+    for ( let i = 0 ; i < placesToTravel1; i++) 
+    if (placesToTravel1.filter((place) => place.id !== 11 && place.id !== 40)
+    ) 
+*/
