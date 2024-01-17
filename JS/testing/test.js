@@ -1,12 +1,19 @@
-const numbers = [1, 2, 3, 5, 45, 37, 58];
 
-const sumAll = (param) => {
-  let sum = 0;
-  for (const number of numbers) {
-    sum += number;
-  }
-  return sum;
-};
+const products = ['Camiseta de Pokemon', 'Pantalón coquinero', 'Gorra de gansta', 'Camiseta de Basket', 'Cinrurón de Orión', 'AC/DC Camiseta'] 
 
-const resultIteration3 = sumAll(numbers);
-console.log(`Resultado de la iteración 3: ${resultIteration3}`);
+let newProductList = [];
+
+for (const product of products) {
+    if (products == "Camiseta") {
+        newProductList.push(product);
+    }
+}
+
+console.log("🚀 ~ newProductList:", newProductList);
+
+
+
+/*
+const filterProductss = products.filter((products)=> {
+    return products == "Camiseta"
+}) */

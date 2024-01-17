@@ -141,4 +141,41 @@ console.log("🚀 ~ resultIteration6:", resultIteration6)
  */
 
 
+//!Iteración #7: Valores únicos
+/* Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - 
+comprueba si existe el elemento, en caso que existan nos devuelve un true y la posición de dicho elemento y por la contra un false.*/ 
 
+const nameFinder = [
+  'Peter',
+  'Steve',
+  'Tony',
+  'Natasha',
+  'Clint',
+  'Logan',
+  'Xabier',
+  'Bruce',
+  'Peggy',
+  'Jessica',
+  'Marc'
+];
+
+function finderName(param) {
+  let uniqueValue = []
+  for (let i = 0; i < uniqueValue.length[i]; i++){    
+  }
+return uniqueValue
+}
+
+resultIteration7 = finderName(nameFinder)
+console.log("🚀 ~ resultIteration7:", resultIteration7)
+
+/**
+1 - We declare a variable to store 
+2 - We write a function 
+3 - We add a for loop to iterate though the array 
+4 - We write a condition to check if the element exists, as TRUE, and position. This means that the function has to return a variable value saying True or false 
+- are we going to use a method? is there an operator that can help us with this? 
+Loop should be regular for because we want the 
+consition should be if return Boolean ,   
+
+*/
