@@ -119,8 +119,18 @@ const duplicates = [
     'soda'
   ];
 
-  const  removeDuplicates = (param) => {
-    const newArray = []
+
+  const newArray = []
+  
+  duplicates.forEach((itemsss) => {      // --> use method() `for each` to iterate through array `duplicated.`
+    if(!newArray.includes(itemsss)) {    // --> IF its not included in `itemsss`  
+      newArray.push(itemsss);            // --> THEN push `itemsss` in new array 
+    }  
+  });
+
+  console.log("🚀 ~ newArray:", newArray)
+
+/** 
 
     for (let i = 0; i < duplicates.length; i++) {
       if (!newArray.includes(duplicates[i])){
@@ -133,13 +143,11 @@ return newArray
 let resultIteration6 = removeDuplicates(duplicates)
 console.log("🚀 ~ resultIteration6:", resultIteration6)
 
-/** 
  * 1- We declare a variable for the new array (newArray) where we will store the unique values 
  * 2- Then we do a `for loop` to iterate though the items in the arrway "duplicates"
  * 3- We then write a condition that checks weather the current element, newArray, is already in the array but using method `Includes()`
  * 4- If not `!`, it adds the element to resultArray using `push()`.
  */
-
 
 //!Iteración #7: Valores únicos
 /* Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - 
@@ -159,16 +167,23 @@ const nameFinder = [
   'Marc'
 ];
 
-function finderName(param) {
-  let uniqueValue = []
-  for (let i = 0; i < uniqueValue.length[i]; i++){    
+let nameToSearch = "Peggy"
+
+const findTrueAndPosition = (nameFinder, nameToSearch) => {
+ // let nameFound = nameToSearch[i]
+for (let i = 0; i < nameFinder.length; i++)
+  if(nameFinder[i] === nameToSearch){
+    //result = "true" && nameFinder.nameToSearch[i] } 
+    result = { found: true, position: i };
   }
-return uniqueValue
-}
+    return result
+  }
 
-resultIteration7 = finderName(nameFinder)
-console.log("🚀 ~ resultIteration7:", resultIteration7)
-
+  
+  resultadoIteración7 = findTrueAndPosition(nameFinder,nameToSearch)
+  console.log("🚀 ~ resultadoIteración7:", resultadoIteración7)
+  
+  
 /**
 1 - We declare a variable to store 
 2 - We write a function 
@@ -178,3 +193,25 @@ console.log("🚀 ~ resultIteration7:", resultIteration7)
 Loop should be regular for because we want the 
 consition should be if return Boolean ,   
 */
+
+//! Iteración #8: contador de repeticiones
+/**
+ * Crea una función que nos devuelva el número de veces que se repite cada una de las palabras que lo conforma.  
+ */
+
+const counterWords = [
+  'code',
+  'repeat',
+  'eat',
+  'sleep',
+  'code',
+  'enjoy',
+  'sleep',
+  'code',
+  'enjoy',
+  'upgrade',
+  'code'
+];
+function repeatCounter(param) {
+  // insert code
+}

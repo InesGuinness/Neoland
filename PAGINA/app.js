@@ -5,7 +5,8 @@ const getData = async () => {
       const pokemonJson = await pokemon.json();
       data.push(pokemonJson);
     }
-  
+    
+
     mappeoDato(data);
   };
   
@@ -31,6 +32,7 @@ const getData = async () => {
       
       `;
       document.getElementById("app").innerHTML += figure;
+      console.log("🚀 ~ dataPrint.forEach ~ figure:", figure)
     });
   };
   getData();
