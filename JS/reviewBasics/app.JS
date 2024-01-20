@@ -73,3 +73,28 @@ const averageVolume = totalVolume / totalSounds;
 console.log("🚀 ~ averageVolume:", averageVolume)
 
 
+//! Iteración #4: Métodos findArrayIndex
+
+const myArray = ['Caracol', 'Mosquito', 'Salamandra', 'Ajolote']
+
+const findMyArray = (paramArray, paramText) => {
+    // iniciate a var with index point in order to store the position 
+    let indexPosition = 0
+
+    for (let item of paramArray) {
+        if (item === paramText) { 
+    // forma incorrecta > (paramText === paramArray(item))
+   // indexPosition++
+
+            return indexPosition 
+        }
+        
+    }
+    indexPosition++
+}
+
+const response = findMyArray(myArray, "Ajolote")
+console.log("🚀 ~ response:", response)
+
+
+     
