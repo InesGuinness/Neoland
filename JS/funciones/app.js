@@ -1,7 +1,7 @@
 //! Iteración #1: Buscar el máximo
 //Completa la función que tomando dos números como argumento devuelva el más alto.
 
-function sum(numberOne, numberTwo) {
+const  sum =(numberOne, numberTwo) => {
     if (numberOne > numberTwo) {console.log(`Resultado de la iteración 1: ${numberOne}`)} 
     else {console.log(`Resultado de la iteración 1: ${numberTwo}`)} 
   }
@@ -178,7 +178,6 @@ for (let i = 0; i < nameFinder.length; i++)
   }
     return result
   }
-
   
   resultadoIteración7 = findTrueAndPosition(nameFinder,nameToSearch)
   console.log("🚀 ~ resultadoIteración7:", resultadoIteración7)

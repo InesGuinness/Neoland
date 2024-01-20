@@ -12,7 +12,7 @@ const buscarComida = (arrayDeComidas, comidaABuscar) => {
   let acc = 0;
   for (let i = 0; i < arrayDeComidas.length; i++) {
     arrayDeComidas[i].toLowerCase().trim() ===
-      comidaABuscar.toLowerCase().trim() //&& acc++;
+      comidaABuscar.toLowerCase().trim() && acc++;
   }
 
   return acc === 0

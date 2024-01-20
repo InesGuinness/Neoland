@@ -65,29 +65,29 @@ const alien = {
     weight: '259kg'
 }
 
-for ( alienKey in alien ) {
-    console.log("🚀 ~ alienKey:", alienKey.name)
+for (alienKey in alien) {
+console.log("🚀 ~ alien:", alien[alienKey])
 }
+
+
+/* PROBANDO METODOS PARA OBJECTOS
+result = Object.entries(alien) 
+console.log("🚀 ~ result:", result)
+*/
 
 //! Iteración #5: Probando For 
 /* Usa un bucle for para recorrer todos los destinos del array y elimina los elementos que tengan el id 11 y 40. 
 Imprime en un console log el array. Puedes usar este array: */
 
-const placesToTravel1 = [{id: 5, name: 'Japan'}, {id: 11, name: 'Venecia'}, {id: 23, name: 'Murcia'}, {id: 40, name: 'Santander'}, {id: 44, name: 'Filipinas'}, {id: 59, name: 'Madagascar'}]
 
-const myFunction = (param) => {
+  /*
+
+    const myFunction = (param) => {
     let newArray = placesToTravel1.filter((place) => place.id !== 11 && place.id !== 40);
     return newArray;
   };
   
   const result = myFunction(placesToTravel1);
   console.log(result);
-
-/*
-
-const function = ( param) => {
-    let newArray = []
-    for ( let i = 0 ; i < placesToTravel1; i++) 
-    if (placesToTravel1.filter((place) => place.id !== 11 && place.id !== 40)
-    ) 
 */
+
