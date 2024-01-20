@@ -6,7 +6,7 @@ const products = [
   "Pantalón coquinero",
   "Gorra de gansta",
   "Camiseta de Basket",
-  "Cinrurón de Orión", // hhhh
+  "Cinrurón de Orión",
   "AC/DC Camiseta",
 ];
 
