@@ -88,13 +88,48 @@ const findMyArray = (paramArray, paramText) => {
 
             return indexPosition 
         }
-        
+        indexPosition++
     }
-    indexPosition++
+   
 }
 
 const response = findMyArray(myArray, "Ajolote")
 console.log("🚀 ~ response:", response)
 
 
-     
+//! Iteración #5: Función rollDice
+
+//! Iteration #6: Swap Function
+
+const swap = (array, indexNo1, indexNo2) => {
+    let newNames = [];
+    for (let i = 0; i < array.length; i++) {
+        newNames[i] = array[i];
+    }
+    // Swap elements
+    let temp = newNames[indexNo1];
+    newNames[indexNo1] = newNames[indexNo2];
+    newNames[indexNo2] = temp;
+    return newNames;
+};
+
+const names = ['Mesirve', 'Cristiano Romualdo', 'Fernando Muralla', 'Ronalguiño'];
+
+const resultIteration6 = swap(names, 0, 2);
+console.log("🚀 ~ resultIteration6:", resultIteration6);
+
+
+/*
+
+const swap = (array, indexNo1, indexNo2) => {
+    let newNames = [...array]; // Make a copy of the original array
+    [newNames[indexNo1], newNames[indexNo2]] = [newNames[indexNo2], newNames[indexNo1]];
+    return newNames;
+};
+
+const names = ['Mesirve', 'Cristiano Romualdo', 'Fernando Muralla', 'Ronalguiño'];
+
+const resultIteration6 = swap(names, 0, 2);
+console.log("🚀 ~ resultIteration6:", resultIteration6);
+
+*/

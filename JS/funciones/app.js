@@ -16,9 +16,23 @@ const  sum =(numberOne, numberTwo) => {
 en caso de que dos strings tenga la misma longitud deberá devolver el primero.
 Puedes usar este array para probar tu función: */
 
-
 const avengers = ['Hulk', 'Thor', 'IronMan', 'Captain A.', 'Spidermannnnn', 'Captain M.'];
 
+const findLongestWord = (paramArray) => {
+  let lgth = 0 
+  let longest = "" 
+  for (let item of paramArray) 
+    if (item.length > longest.length) { 
+      let lgth = item.length  
+      longest = item;  
+      }
+      return longest
+    }
+
+    let resultIteration2 = findLongestWord(avengers)
+    console.log(`Resultado de la iteración 2: ${resultIteration2}`)
+
+/* 
 
 const findLongestWord = (param) => {
   let lgth = 0 
@@ -33,8 +47,9 @@ const findLongestWord = (param) => {
     }
 
     let resultIteration2 = findLongestWord(avengers)
-
     console.log(`Resultado de la iteración 2: ${resultIteration2}`)
+
+    */
 
 
 //!Iteración #3: Calcular la suma 
@@ -45,6 +60,17 @@ Puedes usar este array para probar tu función: */
 
 const numbers = [1, 2, 3, 5, 45, 37, 58];
 
+const sumAll = (paramArray) => {
+  let sum = 0 
+  for (let number of paramArray){
+    sum += number
+  }
+  return sum
+}
+const resultIteration3 = sumAll(numbers)
+console.log(`Resultado de la iteración 3: ${resultIteration3}`)
+
+/*
 const sumAll = (param) => {
   let sum = 0
   for (let i = 0; i < numbers.length; i++) {
@@ -53,15 +79,26 @@ const sumAll = (param) => {
   return sum
 }
 
-const resultIteration3 = sumAll(numbers)
-console.log(`Resultado de la iteración 3: ${resultIteration3}`)
-
+*/
 //! Iteración #4: Calcular el promedio
 // Calcular un promedio es una tarea extremadamente común. Puedes usar este array para probar tu función:
 
 const numberss = [12, 21, 38, 5, 45, 37, 6];
 
-const sum1 = (param) => {
+const calculateAverage = (paramArray) => {
+    let sumResult = 0 
+    for (let number of paramArray){
+        sumResult += number
+    }
+    return sumResult }
+
+    let resultCalculateAverage = calculateAverage(numberss)
+
+let resultIteration4 = resultCalculateAverage / numberss.length
+console.log(`Resultado de la iteración 4: ${resultIteration4}`)
+
+/**
+ * const sum1 = (param) => {
     let sumResult = 0 
     for (let i = 0; i < numberss.length; i++){
         sumResult += numberss[i]
@@ -70,8 +107,7 @@ const sum1 = (param) => {
 
     let resultSum1 = sum1(numberss)
 
-let resultIteration4 = resultSum1 / numberss.length
-console.log(`Resultado de la iteración 4: ${resultIteration4}`)
+ */
 
 //!Iteración #5: Calcular promedio de strings
 /* Crea una función que reciba por parámetro un array y cuando es un valor number lo sume y de lo contrario 
@@ -80,7 +116,27 @@ cuente la longitud del string y lo sume. Puedes usar este array para probar tu f
 
 const mixedElements = [6, 1, 'Rayo', 1, 'vallecano', '10', 'upgrade', 8, 'hub'];
 
-const averageWord = (array) => {
+const averageWord = (paramArray) => {
+    let sumNumbers = 0
+    let sumStrings = 0
+    let counterString = 0
+ 
+for (let item of paramArray) { 
+  if (typeof item === "number"){
+        sumNumbers += item; 
+  } else {
+    counterString++ 
+    sumStrings += item.length
+        }
+  }
+  return [sumNumbers, sumStrings]
+}
+
+let result = averageWord(mixedElements)
+console.log(`Resultado de la iteración 5: ${result}`)
+
+/**
+ * const averageWord = (array) => {
     let sumNumbers = 0
     let sumStrings = 0
     let counterString = 0
@@ -97,9 +153,7 @@ for (let i = 0; i < array.length; i++) {
 }
 
 let result = averageWord(mixedElements)
-//let resultSumNumbers = 
-console.log(`Resultado de la iteración 5: ${result}`)
-
+ */
 
 //!Iteración #6: Valores únicos
 /*Crea una función que reciba por parámetro un array y compruebe si existen elementos duplicados, 
@@ -131,7 +185,6 @@ const duplicates = [
   console.log("🚀 ~ newArray:", newArray)
 
 /** 
-
     for (let i = 0; i < duplicates.length; i++) {
       if (!newArray.includes(duplicates[i])){
         newArray.push(duplicates[i]);
@@ -142,12 +195,6 @@ return newArray
 
 let resultIteration6 = removeDuplicates(duplicates)
 console.log("🚀 ~ resultIteration6:", resultIteration6)
-
- * 1- We declare a variable for the new array (newArray) where we will store the unique values 
- * 2- Then we do a `for loop` to iterate though the items in the arrway "duplicates"
- * 3- We then write a condition that checks weather the current element, newArray, is already in the array but using method `Includes()`
- * 4- If not `!`, it adds the element to resultArray using `push()`.
- */
 
 //!Iteración #7: Valores únicos
 /* Crea una función que reciba por parámetro un array y el valor que desea comprobar que existe dentro de dicho array - 
@@ -181,17 +228,6 @@ for (let i = 0; i < nameFinder.length; i++)
   
   resultadoIteración7 = findTrueAndPosition(nameFinder,nameToSearch)
   console.log("🚀 ~ resultadoIteración7:", resultadoIteración7)
-  
-  
-/**
-1 - We declare a variable to store 
-2 - We write a function 
-3 - We add a for loop to iterate though the array 
-4 - We write a condition to check if the element exists, as TRUE, and position. This means that the function has to return a variable value saying True or false 
-- are we going to use a method? is there an operator that can help us with this? 
-Loop should be regular for because we want the 
-consition should be if return Boolean ,   
-*/
 
 //! Iteración #8: contador de repeticiones
 /**
@@ -211,6 +247,6 @@ const counterWords = [
   'upgrade',
   'code'
 ];
-function repeatCounter(param) {
-  // insert code
+const repeatCounter = (param) => {
+  
 }
