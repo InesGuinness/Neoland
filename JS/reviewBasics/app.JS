@@ -70,5 +70,6 @@ for (const user of users) {                               // --> for...of to ite
 }
 
 const averageVolume = totalVolume / totalSounds;
+console.log("🚀 ~ averageVolume:", averageVolume)
 
-console.log("Average Volume:", averageVolume);
+
