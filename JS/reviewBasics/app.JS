@@ -72,6 +72,29 @@ for (const user of users) {                               // --> for...of to ite
 const averageVolume = totalVolume / totalSounds;
 console.log("🚀 ~ averageVolume:", averageVolume)
 
+//!Iteración #3: Mix Fors
+/** usa forof y forin para saber cuantas veces ha sido cada sonido agregado por los usuarios a favorito. Para ello recorre la lista de usuarios y usa forin para recoger el nombre de los sonidos que el usuario tenga como favoritos.
+Una vez accedas a ellos piensa en la mejor forma de hacer un conteo de cada vez que ese sonido se repita como favorito en cada usuario. */
+
+// creating an empty object to store the sound as keys and the count as values  
+let soundsOcurrances = {} 
+
+// then we iterate though the different objects and collect the sounds as keys, and counts as values. 
+// then we use a loop to iterate through the array users' object user
+for (const user of users) {                               
+    // we iterated through object favoritesSounds (accesing through user) and retrived values and stred them in soundKey
+    for (const soundKey in user.favoritesSounds) {     
+        // adding the keys that do not exist 
+     if (!soundsOcurrances.hasOwnProperty(soundKey)){
+        // and set the value to 0 
+        soundsOcurrances[soundKey]= 0
+    } 
+    // 
+    soundsOcurrances[soundKey]++
+    }
+}
+console.log("🚀 ~ soundsOcurrances:", soundsOcurrances)
+
 
 //! Iteración #4: Métodos findArrayIndex
 
@@ -84,13 +107,12 @@ const findMyArray = (paramArray, paramText) => {
     for (let item of paramArray) {
         if (item === paramText) { 
     // forma incorrecta > (paramText === paramArray(item))
-   // indexPosition++
+    // indexPosition++
 
             return indexPosition 
         }
         indexPosition++
     }
-   
 }
 
 const response = findMyArray(myArray, "Ajolote")
