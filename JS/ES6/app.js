@@ -122,7 +122,7 @@ de la propiedad .name y cambia el nombre a 'Anacleto' en caso de que empiece por
 const modifiedUsers = users.map((user) => {
 	// Check if the name contains 'A'
 	if (user.name.includes("A")) {
-		// If it does, replace 'A' with 'Anacleto'
+		// console.log("🚀 ~ modifiedUsers ~ user:", user);
 		return { ...user, name: user.name.replace(user.name, "Anacleto") };
 	} else {
 		// If it doesn't contain 'A', keep the original user object
@@ -134,4 +134,31 @@ console.log(
 	modifiedUsers
 );
 
-//! 4.3 Dado el siguiente array, devuelve una lista que contenga los valores
+/* 4.3 Dado el siguiente array, devuelve una lista que contenga los valores 
+de la propiedad .name y añade al valor de .name el string ' (Visitado)' 
+cuando el valor de la propiedad isVisited = true. */
+
+const cities = [
+	{ isVisited: true, name: "Tokyo" },
+	{ isVisited: false, name: "Madagascar" },
+	{ isVisited: true, name: "Amsterdam" },
+	{ isVisited: false, name: "Seul" },
+];
+
+const modifiedCities = cities.map((city) => {
+	// check if property isVisited is true
+	if (city.isVisited == true)
+		// return a copy of the object with updated name value of its property
+		return {
+			...city,
+			name: `${city.name} (visited)`,
+		};
+	// add `else` in order to not get undefined
+	else {
+		return city;
+	}
+});
+console.log(
+	"Iteración #4 4.3 🚀 ~ modifiedCities ~ modifiedCities:",
+	modifiedCities
+);

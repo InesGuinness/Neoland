@@ -1,21 +1,17 @@
-const users = [
-	{ id: 1, name: "Abel" },
-	{ id: 2, name: "Julia" },
-	{ id: 3, name: "Pedro" },
-	{ id: 4, name: "Amanda" },
+const cities = [
+	{ isVisited: true, name: "Tokyo" },
+	{ isVisited: false, name: "Madagascar" },
+	{ isVisited: true, name: "Amsterdam" },
+	{ isVisited: false, name: "Seul" },
 ];
 
-const modifiedUsers = [];
-
-for (const user of users) {
-	if (user.name.includes("A")) {
-		modifiedUsers.push({
-			...user,
-			name: user.name.replace(user.name, "Anacleto"),
-		});
-	} else {
-		modifiedUsers.push(user);
-	}
-}
-
-console.log("Modified Users:", modifiedUsers);
+const modifiedCities = cities.map((city) => {
+	// check if property isVisited is true
+	if (city.isVisited == true)
+		// return a copy of the object with updated name
+		return {
+			...city,
+			name: `${city.name} visited`,
+		};
+});
+console.log("🚀 ~ modifiedCities ~ modifiedCities:", modifiedCities);
