@@ -104,35 +104,34 @@ const newColors = [...colors.slice(0, 2), ...colors.slice(3)];
 console.log("Iteración #3 3.5 🚀 ~ newColors:", newColors);
 
 //! Iteración #4: Map
+// 4.1 Dado el siguiente array, devuelve un array con sus nombres. utilizando .map().
 
-/**
- * 4.1 Dado el siguiente array, devuelve un array con sus nombres 
-utilizando .map().
 const users = [
-	{id: 1, name: 'Abel'},
-	{id:2, name: 'Julia'},
-	{id:3, name: 'Pedro'},
-	{id:4, name: 'Amanda'}
+	{ id: 1, name: "Abel" },
+	{ id: 2, name: "Julia" },
+	{ id: 3, name: "Pedro" },
+	{ id: 4, name: "Amanda" },
 ];
 
-4.2 Dado el siguiente array, devuelve una lista que contenga los valores 
-de la propiedad .name y cambia el nombre a 'Anacleto' en caso de que 
-empiece por 'A'.
-const users = [
-	{id: 1, name: 'Abel'},
-	{id:2, name: 'Julia'},
-	{id:3, name: 'Pedro'},
-	{id:4, name: 'Amanda'}
-];
+const newUsersArray = users.map((user) => user.name);
+console.log("Iteración #4 4.1 🚀 ~ newArray:", newUsersArray);
 
-4.3 Dado el siguiente array, devuelve una lista que contenga los valores 
-de la propiedad .name y añade al valor de .name el string ' (Visitado)' 
-cuando el valor de la propiedad isVisited = true.
-const cities = [
-	{isVisited:true, name: 'Tokyo'}, 
-	{isVisited:false, name: 'Madagascar'},
-	{isVisited:true, name: 'Amsterdam'}, 
-	{isVisited:false, name: 'Seul'}
-];
- * 
- */
+/* 4.2 Dado el siguiente array, devuelve una lista que contenga los valores 
+de la propiedad .name y cambia el nombre a 'Anacleto' en caso de que empiece por 'A'.*/
+
+const modifiedUsers = users.map((user) => {
+	// Check if the name contains 'A'
+	if (user.name.includes("A")) {
+		// If it does, replace 'A' with 'Anacleto'
+		return { ...user, name: user.name.replace(user.name, "Anacleto") };
+	} else {
+		// If it doesn't contain 'A', keep the original user object
+		return user;
+	}
+});
+console.log(
+	"Iteración #4 4.2 🚀 ~ modifiedUsers ~ modifiedUsers:",
+	modifiedUsers
+);
+
+//! 4.3 Dado el siguiente array, devuelve una lista que contenga los valores
