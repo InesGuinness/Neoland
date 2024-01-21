@@ -62,3 +62,77 @@ const { name2, itv } = car;
 console.log("Iteración #2 2.4 🚀 ~ car:", car);
 const [yr1, yr2, yr3] = itv;
 console.log("Iteración #2 2.4 🚀 ~ itv:", itv);
+
+//! Iteración #3: Spread Operator
+// 3.1 Dado el siguiente array, crea una copia usando spread operators.
+
+const pointsList = [32, 54, 21, 64, 75, 43];
+const pointsListCopy = [...pointsList];
+console.log("Iteración #3 3.1 🚀 ~ pointsListCopy:", pointsListCopy);
+
+// 3.2 Dado el siguiente objeto, crea una copia usando spread operators.
+const toy = { name: "Bus laiyiar", date: "20-30-1995", color: "multicolor" };
+
+const toyCopy = { ...toy };
+console.log("Iteración #3 3.2 🚀 ~ toyCopy:", toyCopy);
+
+// 3.3 Dado los siguientes arrays, crea un nuevo array juntandolos usando spread operatos.
+
+const pointsList1 = [32, 54, 21, 64, 75, 43];
+const pointsLis2 = [54, 87, 99, 65, 32];
+
+const newListCombined = [...pointsList1, ...pointsLis2];
+console.log("Iteración #3 3.3 🚀 ~ newListCombined:", newListCombined);
+
+// 3.4 Dado los siguientes objetos. Crea un nuevo objeto fusionando los dos con spread operators.
+const toy1 = { name: "Bus laiyiar", date: "20-30-1995", color: "multicolor" };
+const toyUpdate = { lights: "rgb", power: ["Volar like a dragon", "MoonWalk"] };
+
+const fusedToy = {
+	...toy1,
+	...toyUpdate,
+};
+
+console.log("Iteración #3 3.4 🚀 ~ fusedToy:", fusedToy);
+
+/* 3.5 Dado el siguiente array. Crear una copia de él eliminando la posición 2 
+pero sin editar el array inicial. De nuevo, usando spread operatos. */
+
+const colors = ["rojo", "azul", "amarillo", "verde", "naranja"];
+// slice position 2 by starting the index and then indicating end of index like (0,2)
+const newColors = [...colors.slice(0, 2), ...colors.slice(3)];
+console.log("Iteración #3 3.5 🚀 ~ newColors:", newColors);
+
+//! Iteración #4: Map
+
+/**
+ * 4.1 Dado el siguiente array, devuelve un array con sus nombres 
+utilizando .map().
+const users = [
+	{id: 1, name: 'Abel'},
+	{id:2, name: 'Julia'},
+	{id:3, name: 'Pedro'},
+	{id:4, name: 'Amanda'}
+];
+
+4.2 Dado el siguiente array, devuelve una lista que contenga los valores 
+de la propiedad .name y cambia el nombre a 'Anacleto' en caso de que 
+empiece por 'A'.
+const users = [
+	{id: 1, name: 'Abel'},
+	{id:2, name: 'Julia'},
+	{id:3, name: 'Pedro'},
+	{id:4, name: 'Amanda'}
+];
+
+4.3 Dado el siguiente array, devuelve una lista que contenga los valores 
+de la propiedad .name y añade al valor de .name el string ' (Visitado)' 
+cuando el valor de la propiedad isVisited = true.
+const cities = [
+	{isVisited:true, name: 'Tokyo'}, 
+	{isVisited:false, name: 'Madagascar'},
+	{isVisited:true, name: 'Amsterdam'}, 
+	{isVisited:false, name: 'Seul'}
+];
+ * 
+ */
