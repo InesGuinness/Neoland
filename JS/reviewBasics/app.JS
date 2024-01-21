@@ -134,6 +134,7 @@ console.log("🚀 ~ response:", response);
 //! Iteración #5: Función rollDice
 
 //! Iteration #6: Swap Function
+//? check out video https://www.youtube.com/watch?v=UgEaJBz3bjY&t=135s&ab_channel=Fireship
 
 const swap = (array, indexNo1, indexNo2) => {
 	let newNames = [];
@@ -156,18 +157,3 @@ const names = [
 
 const resultIteration6 = swap(names, 0, 2);
 console.log("🚀 ~ resultIteration6:", resultIteration6);
-
-/*
-
-const swap = (array, indexNo1, indexNo2) => {
-    let newNames = [...array]; // Make a copy of the original array
-    [newNames[indexNo1], newNames[indexNo2]] = [newNames[indexNo2], newNames[indexNo1]];
-    return newNames;
-};
-
-const names = ['Mesirve', 'Cristiano Romualdo', 'Fernando Muralla', 'Ronalguiño'];
-
-const resultIteration6 = swap(names, 0, 2);
-console.log("🚀 ~ resultIteration6:", resultIteration6);
-
-*/
