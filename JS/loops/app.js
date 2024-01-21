@@ -64,7 +64,7 @@ alumns.forEach((alumn) => {
 //! Iteración #3: Probando For...of
 /* Usa un bucle forof para recorrer todos los destinos del array. Imprime en un console.log sus valores. */
 
-const placesToTravel = [
+const placesToTravel1 = [
 	"Japon",
 	"Venecia",
 	"Murcia",
@@ -73,7 +73,7 @@ const placesToTravel = [
 	"Madagascar",
 ];
 
-for (const placeElement of placesToTravel) {
+for (const placeElement of placesToTravel1) {
 	console.log(placeElement);
 }
 
@@ -91,22 +91,38 @@ for (alienKey in alien) {
 	console.log("🚀 ~ alien:", alien[alienKey]);
 }
 
-/* PROBANDO METODOS PARA OBJECTOS
-result = Object.entries(alien) 
-console.log("🚀 ~ result:", result)
-*/
+//? with method `object.entries()`
+result = Object.entries(alien);
+console.log("🚀 ~ result:", result);
 
 //! Iteración #5: Probando For
 /* Usa un bucle for para recorrer todos los destinos del array y elimina los elementos que tengan el id 11 y 40. 
 Imprime en un console log el array. Puedes usar este array: */
 
-/*
+const placesToTravel = [
+	{ id: 5, name: "Japan" },
+	{ id: 11, name: "Venecia" },
+	{ id: 23, name: "Murcia" },
+	{ id: 40, name: "Santander" },
+	{ id: 44, name: "Filipinas" },
+	{ id: 59, name: "Madagascar" },
+];
 
+for (items of placesToTravel) {
+	let newPlacesToTravel = [];
+	if (placesToTravel.includes(place.id !== 11 && place.id !== 40)) {
+		newPlacesToTravel.placesToTravel[i] = 0;
+	}
+	newPlacesToTravel.placesToTravel[i]++;
+}
+console.log("🚀 ~ newPlacesToTravel:", newPlacesToTravel);
+
+/*
     const myFunction = (param) => {
     let newArray = placesToTravel1.filter((place) => place.id !== 11 && place.id !== 40);
     return newArray;
   };
   
-  const result = myFunction(placesToTravel1);
+  const result = myFunction(placesToTravel);
   console.log(result);
 */
