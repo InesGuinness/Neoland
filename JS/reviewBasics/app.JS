@@ -74,12 +74,14 @@ let totalVolume = 0;
 let totalSounds = 0;
 
 for (const user of users) {
-	// --> for...of to iterates over each `user` in the users array.
+	// for...of to iterates over each `user` in the users array.
 	for (const soundKey in user.favoritesSounds) {
-		// --> The inner for...in loop iterates over each key (soundKey) in the favoritesSounds object of the current user.
-		const sound = user.favoritesSounds[soundKey]; // --> Retrieves the sound object associated with the current soundKey in the favoritesSounds of the current user.
-		totalVolume += sound.volume; // --> Adds the volume of the current sound to the totalVolume and increments the totalSounds count.
-		totalSounds++; // --> End of the inner loop, which iterates over the sounds of the current user.
+		// The inner for...in loop iterates over each key (soundKey) in the favoritesSounds object of the current user.
+		const sound = user.favoritesSounds[soundKey];
+		// Retrieves the sound object associated with the current soundKey in the favoritesSounds of the current user.
+		totalVolume += sound.volume;
+		// Adds the volume of the current sound to the totalVolume and increments the totalSounds count.
+		totalSounds++; // End of the inner loop, which iterates over the sounds of the current user.
 	}
 }
 

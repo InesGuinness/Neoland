@@ -205,12 +205,21 @@ const filtersByLetterU = streamers.filter((streamer) => {
 });
 console.log("Iteración #5 5.4 🚀 ~ filtersByLetterU:", filtersByLetterU);
 
-/**
-5.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan 
+/** 5.5 utiliza .filter() para generar un nuevo array con los streamers que incluyan 
 el caracter 'Legends' en su propiedad .gameMorePlayed. Recomendamos usar la funcion 
 .includes() para la comprobación.
+
 Además, pon el valor de la propiedad .gameMorePlayed a MAYUSCULAS cuando 
 .age sea mayor que 35.
+*/
+
+const filtersByLegend = streamers.filter((streamer) => {
+	if (streamer.gameMorePlayed < 35) {
+		return { ...streamer.gameMorePlayed.includes("Legends") };
+	}
+});
+
+/*
 
 5.6 Dado el siguiente html y javascript, utiliza .filter() para mostrar por consola 
 los streamers que incluyan la palabra introducida en el input. De esta forma, si 
@@ -263,3 +272,82 @@ const streamers = [
 </html>
  * 
  */
+
+//! 6.1 Dado el siguiente array, usa .find() para econtrar el número 100.
+const numbers = [32, 21, 63, 95, 100, 67, 43];
+const findNumber = numbers.find((number) => number === 100);
+console.log("Iteración #6 6.1 🚀 ~ findNumber:", findNumber);
+
+// 6.2 Dado el siguiente array, usa .find() para econtrar la pelicula del año 2010.
+const movies = [
+	{ title: "Madagascar", stars: 4.5, date: 2015 },
+	{ title: "Origen", stars: 5, date: 2010 },
+	{ title: "Your Name", stars: 5, date: 2016 },
+];
+
+const findMovie = movies.find((movie) => movie.date === 2010);
+console.log("Iteración #6 6.2 🚀 ~ findMovie:", findMovie);
+
+/* 6.3 Dado el siguiente javascript, usa .find() para econtrar el alien de nombre 
+'Cucushumushu' y la mutación 'Porompompero'. Una vez que los encuentres, usa 
+spread operator para fusionarlos teniendo en cuenta que el objeto de la mutación 
+lo queremos meter en la propiedad .mutation del objeto fusionado.*/
+
+const aliens = [
+	{ name: "Zalamero", planet: "Eden", age: 4029 },
+	{ name: "Paktu", planet: "Andromeda", age: 32 },
+	{ name: "Cucushumushu", planet: "Marte", age: 503021 },
+];
+const mutations = [
+	{
+		name: "Porompompero",
+		description:
+			"Hace que el alien pueda adquirir la habilidad de tocar el tambor",
+	},
+	{
+		name: "Fly me to the moon",
+		description: "Permite volar, solo y exclusivamente a la luna",
+	},
+	{
+		name: "Andando que es gerundio",
+		description: "Invoca a un señor mayor como Personal Trainer",
+	},
+];
+
+const alienFinder = aliens.find((alien) => alien.name === "Cucushumushu");
+const mutantFinder = mutations.find((mutant) => mutant.name === "Porompompero");
+
+const fusedAlienMutant = { ...alienFinder, ...mutantFinder };
+console.log("Iteración #6 6.3 🚀 ~ fusedAlienMutant:", fusedAlienMutant);
+
+//!7.1 Dado el siguiente array, haz una suma de todos las notas de los examenes de
+//los alumnos usando la función .reduce().
+
+const exams = [
+	{ name: "Yuyu Cabeza Crack", score: 5 },
+	{ name: "Maria Aranda Jimenez", score: 1 },
+	{ name: "Cristóbal Martínez Lorenzo", score: 6 },
+	{ name: "Mercedez Regrera Brito", score: 7 },
+	{ name: "Pamela Anderson", score: 3 },
+	{ name: "Enrique Perez Lijó", score: 6 },
+	{ name: "Pedro Benitez Pacheco", score: 8 },
+	{ name: "Ayumi Hamasaki", score: 4 },
+	{ name: "Robert Kiyosaki", score: 2 },
+	{ name: "Keanu Reeves", score: 10 },
+];
+
+const sumScore = exams.reduce(
+	(accumulator, exam) => accumulator + exam.score,
+	0
+);
+console.log("Iteración #7 7.1 🚀 ~ sumScore:", sumScore);
+
+//7.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los
+// alumnos que esten aprobados usando la función .reduce().
+
+const sumPassScore = exams.reduce(
+	(accumulator, exam) => accumulator + exam.score,
+	5 < 
+);
+console.log("🚀 ~ sumPassScore:", sumPassScore);
+//7.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().
