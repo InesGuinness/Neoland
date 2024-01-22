@@ -345,9 +345,25 @@ console.log("Iteración #7 7.1 🚀 ~ sumScore:", sumScore);
 //7.2 Dado el mismo array, haz una suma de todos las notas de los examenes de los
 // alumnos que esten aprobados usando la función .reduce().
 
-const sumPassScore = exams.reduce(
+const approvedExams = exams
+	.filter((exam) => exam.score > 5)
+	.reduce((accumulator, exam) => accumulator + exam.score, 0);
+console.log("Iteración #7 7.2 🚀 ~ approvedExams:", approvedExams);
+
+/** LONG FORM 
+ * const approvedExams = exams.filter((exam) => exam.score > 5);
+console.log("🚀 ~ approvedExams:", approvedExams);
+
+const sumPassScore = approvedExams.reduce(
 	(accumulator, exam) => accumulator + exam.score,
-	5 < 
+	0
 );
-console.log("🚀 ~ sumPassScore:", sumPassScore);
+ */
+
 //7.3 Dado el mismo array, haz la media de las notas de todos los examenes .reduce().
+
+const averageScore = exams.reduce(
+	(accumulator, exam) => accumulator + exam.score / exams.length,
+	0
+);
+console.log("Iteración #7 7.3 🚀 ~ averageScore:", averageScore);

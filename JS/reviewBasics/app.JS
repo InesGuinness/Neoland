@@ -80,6 +80,8 @@ for (const user of users) {
 		const sound = user.favoritesSounds[soundKey];
 		// Retrieves the sound object associated with the current soundKey in the favoritesSounds of the current user.
 		totalVolume += sound.volume;
+		console.log("🚀 ~ totalVolume :", totalVolume);
+		console.log("🚀 ~ sound.volume:", sound.volume);
 		// Adds the volume of the current sound to the totalVolume and increments the totalSounds count.
 		totalSounds++; // End of the inner loop, which iterates over the sounds of the current user.
 	}
