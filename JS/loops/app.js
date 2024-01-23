@@ -135,6 +135,25 @@ console.log("🚀 ~ newPlaces:", newPlaces);
 /**Usa un bucle for...of para recorrer todos los juguetes y elimina los que incluyan la palabra gato.
  * Recuerda que puedes usar la función .includes() para comprobarlo.Puedes usar este array: */
 
+const toyss = [
+	{ id: 5, name: "Buzz MyYear" },
+	{ id: 11, name: "Action Woman" },
+	{ id: 23, name: "Barbie Man" },
+	{ id: 40, name: "El gato con Guantes" },
+	{ id: 40, name: "El gato felix" },
+];
+
+let newArray = {};
+for (const toy of toyss) {
+	if (!toy.name.includes("i")) {
+		if (!newArray[toy.name]) {
+			newArray[toy.name] = 0;
+		}
+		newArray[toy.name]++;
+	}
+}
+console.log("🚀 ~ newArray:", newArray);
+
 //! Iteración #7: For...of avanzado
 /**
  * Usa un bucle for...of para recorrer todos los juguetes y
@@ -149,3 +168,8 @@ const toys = [
 	{ id: 40, name: "El gato con Guantes", sellCount: 8 },
 	{ id: 40, name: "El gato felix", sellCount: 35 },
 ];
+
+for (let toy of toys) {
+	if (toy.sellCount > 15) popularToys1.push(toy);
+}
+console.log("🚀 ~ popularToys1:", popularToys1);
