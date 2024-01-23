@@ -269,4 +269,23 @@ const counterWords = [
 	"upgrade",
 	"code",
 ];
-const repeatCounter = (param) => {};
+
+const repeatCounter = (array) => {
+	const wordCount = {};
+
+	// Iterar sobre el array y contar la frecuencia de cada palabra
+	array.forEach((word) => {
+		if (wordCount[word]) {
+			wordCount[word]++;
+		} else {
+			wordCount[word] = 1;
+		}
+	});
+
+	return wordCount;
+};
+
+// Llamar a la función con el array de palabras
+const resultt = repeatCounter(counterWords);
+
+console.log(resultt);
