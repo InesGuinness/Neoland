@@ -100,7 +100,14 @@ const sumAll = (param) => {
 
 const numberss = [12, 21, 38, 5, 45, 37, 6];
 
-const calculateAverage = (paramArray) => {
+const calculateAverage = numberss.reduce(
+	(number, numberss) => number + numberss / numberss,
+	0
+);
+console.log(`Resultado de la iteración 4: ${calculateAverage}`);
+
+/**
+ const calculateAverage = (paramArray) => {
 	let sumResult = 0;
 	for (let number of paramArray) {
 		sumResult += number;
@@ -110,8 +117,7 @@ const calculateAverage = (paramArray) => {
 
 let resultCalculateAverage = calculateAverage(numberss);
 
-let resultIteration4 = resultCalculateAverage / numberss.length;
-console.log(`Resultado de la iteración 4: ${resultIteration4}`);
+ */
 
 /**
  * const sum1 = (param) => {
