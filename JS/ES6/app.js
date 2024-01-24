@@ -231,7 +231,7 @@ const toFilterStreamers = (streamers, text) => {
 };
 
 response = toFilterStreamers(streamers, "i");
-console.log("Iteración #5 5. 🚀 ~ response:", response);
+console.log("Iteración #5 5.4 🚀 ~ response:", response);
 
 /*
 

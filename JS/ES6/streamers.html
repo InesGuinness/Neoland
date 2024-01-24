@@ -1,17 +1,15 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<script type ="module" src="app.js" defer></script>
-
-             <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-             <meta http-equiv="X-UA-Compatible" content="ie=edge">
-             <title>Document</title>
+  <meta charset="UTF-8">
+  <script type="module" src="streamers.js" defer></script>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
 </head>
 <body>
-  <input type="text" data-function="toFilterStreamers"/>
-  <button data-function="toShowFilterStreamers">Filter</button>
+  <input type="text" id="filterInput" data-function="toFilterStreamers" />
+  <button onclick="toShowFilterStreamers()">Filter</button>
+  <button onclick="myScript()">Click me</button>
 </body>
 </html>
-            
