@@ -1,7 +1,4 @@
 //!Iteración #2: Modificando el DOM
-// 2.1 Inserta dinamicamente en un html un div vacio con javascript.
-
-//! Iteración #2: Modificando el DOM
 
 // 2.1 Inserta dinámicamente en un HTML un div vacío con JavaScript.
 // Crear un nuevo elemento div y agregarlo al final del cuerpo del documento.
