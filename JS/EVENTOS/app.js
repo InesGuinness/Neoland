@@ -16,4 +16,4 @@ focus.addEventListener("focus", (event) => console.log(event.target.value));
 
 const value = document.querySelector(".value");
 
-value.addEventListener("input");
+value.addEventListener("input", (e) => console.log(e.target.value));
