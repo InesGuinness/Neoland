@@ -35,7 +35,42 @@ const registerLargo = async (req, res, next) => {
 			///! SI HAY UNA NUEVA ASINCRONIA DE CREAR O ACTUALIZAR HAY QUE METER OTRO TRY CATCH
 			try {
 				const userSave = await newUser.save();
-				return res.status(200).json({ data: userSave });
+
+				if (userSave) {
+					// ---------------------------> ENVIAR EL CODIGO CON NODEMAILER --------------------
+					const emailEnv = process.env.EMAIL;
+					const password = process.env.PASSWORD;
+
+					const transporter = nodemailer.createTransport({
+						service: "gmail",
+						auth: {
+							user: emailEnv,
+							pass: password,
+						},
+					});
+
+					const mailOptions = {
+						from: emailEnv,
+						to: email,
+						subject: "Confirmation code",
+						text: `tu codigo es ${confirmationCode}, gracias por confiar en nosotros ${name}`,
+					};
+
+					transporter.sendMail(mailOptions, function (error, info) {
+						if (error) {
+							console.log(error);
+							return res.status(404).json({
+								user: userSave,
+								confirmationCode: "error, resend code",
+							});
+						}
+						console.log("Email sent: " + info.response);
+						return res.status(200).json({
+							user: userSave,
+							confirmationCode,
+						});
+					});
+				}
 			} catch (error) {
 				return res.status(404).json(error.message);
 			}
@@ -110,4 +145,55 @@ const register = async (req, res, next) => {
 	}
 };
 
-module.exports = { registerLargo, register };
+//! -----------------------------------------------------------------------------
+//? ----------------------------REGISTER CON REDIRECT----------------------------
+//! -----------------------------------------------------------------------------
+
+const sendCode = async (req, res, next) => {
+	try {
+		/// sacamos el param que hemos recibido por la ruta
+		/// recuerda la ruta: http://localhost:${PORT}/api/v1/users/register/sendMail/${userSave._id}
+		const { id } = req.params;
+
+		/// VAMOS A BUSCAR EL USER POR ID para tener el email y el codigo de confirmacion
+		const userDB = await User.findById(id);
+
+		/// ------------------> envio el codigo
+		const emailEnv = process.env.EMAIL;
+		const password = process.env.PASSWORD;
+
+		const transporter = nodemailer.createTransport({
+			service: "gmail",
+			auth: {
+				user: emailEnv,
+				pass: password,
+			},
+		});
+
+		const mailOptions = {
+			from: emailEnv,
+			to: userDB.email,
+			subject: "Confirmation code",
+			text: `tu codigo es ${userDB.confirmationCode}, gracias por confiar en nosotros ${userDB.name}`,
+		};
+
+		transporter.sendMail(mailOptions, function (error, info) {
+			if (error) {
+				console.log(error);
+				return res.status(404).json({
+					user: userDB,
+					confirmationCode: "error, resend code",
+				});
+			}
+			console.log("Email sent: " + info.response);
+			return res.status(200).json({
+				user: userDB,
+				confirmationCode: userDB.confirmationCode,
+			});
+		});
+	} catch (error) {
+		return next(error);
+	}
+};
+
+module.exports = { registerLargo, register, sendCode };
