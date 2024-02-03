@@ -149,6 +149,46 @@ const register = async (req, res, next) => {
 //? ----------------------------REGISTER CON REDIRECT----------------------------
 //! -----------------------------------------------------------------------------
 
+const registerWithRedirect = async (req, res, next) => {
+	let catchImg = req.file?.path;
+	try {
+		await User.syncIndexes();
+		let confirmationCode = randomCode();
+		const userExist = await User.findOne(
+			{ email: req.body.email },
+			{ name: req.body.name }
+		);
+		if (!userExist) {
+			const newUser = new User({ ...req.body, confirmationCode });
+			if (req.file) {
+				newUser.image = req.file.path;
+			} else {
+				newUser.image = "https://pic.onlinewebfonts.com/svg/img_181369.png";
+			}
+
+			try {
+				const userSave = await newUser.save();
+				const PORT = process.env.PORT;
+				if (userSave) {
+					return res.redirect(
+						307,
+						`http://localhost:${PORT}/api/v1/users/register/sendMail/${userSave._id}`
+					);
+				}
+			} catch (error) {
+				return res.status(404).json(error.message);
+			}
+		} else {
+			if (req.file) deleteImgCloudinary(catchImg);
+			return res.status(409).json("this user already exist");
+		}
+	} catch (error) {
+		if (req.file) {
+			deleteImgCloudinary(catchImg);
+		}
+		return next(error);
+	}
+};
 const sendCode = async (req, res, next) => {
 	try {
 		/// sacamos el param que hemos recibido por la ruta
@@ -196,4 +236,4 @@ const sendCode = async (req, res, next) => {
 	}
 };
 
-module.exports = { registerLargo, register, sendCode };
+module.exports = { registerLargo, register, sendCode, registerWithRedirect };
