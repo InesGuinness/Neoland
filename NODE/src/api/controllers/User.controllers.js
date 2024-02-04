@@ -1,12 +1,20 @@
 const { deleteImgCloudinary } = require("../../middleware/files.middleware");
 const randomCode = require("../../utils/randomCode");
+const sendEmail = require("../../utils/sendEmail");
+
 const User = require("../models/User.models");
 
 const nodemailer = require("nodemailer");
 const validator = require("validator");
 const bcrypt = require("bcrypt");
 const { configDotenv } = require("dotenv");
+const {
+	setTestEmailSend,
+	getTestEmailSend,
+} = require("../../state/state.data");
 configDotenv;
+
+const jwt = require("jsonwebtoken");
 
 const registerLargo = async (req, res, next) => {
 	let catchImg = req.file?.path; /// el optional chaining es para que no rompa en caso de no haber path
@@ -22,22 +30,18 @@ const registerLargo = async (req, res, next) => {
 		);
 
 		if (!userExist) {
-			//! -------------LO REGISTRAMOS PORQUE NO HAY COINCIDENCIAS CON UN USER INTERNO
 			const newUser = new User({ ...req.body, confirmationCode });
 
-			// EL USER HA METIDO IMAGEN ???
 			if (req.file) {
 				newUser.image = req.file.path;
 			} else {
 				newUser.image = "https://pic.onlinewebfonts.com/svg/img_181369.png";
 			}
 
-			///! SI HAY UNA NUEVA ASINCRONIA DE CREAR O ACTUALIZAR HAY QUE METER OTRO TRY CATCH
 			try {
 				const userSave = await newUser.save();
 
 				if (userSave) {
-					// ---------------------------> ENVIAR EL CODIGO CON NODEMAILER --------------------
 					const emailEnv = process.env.EMAIL;
 					const password = process.env.PASSWORD;
 
@@ -75,13 +79,10 @@ const registerLargo = async (req, res, next) => {
 				return res.status(404).json(error.message);
 			}
 		} else {
-			///! -------> cuando ya existe un usuario con ese email y ese name
 			if (req.file) deleteImgCloudinary(catchImg);
-			// como ha habido un error la imagen previamente subida se borra de cloudinary
 			return res.status(409).json("this user already exist");
 		}
 	} catch (error) {
-		// SIEMPRE QUE HAY UN ERROR GENERAL TENEMOS QUE BORRAR LA IMAGEN QUE HA SUBIDO EL MIDDLEWARE
 		if (req.file) deleteImgCloudinary(catchImg);
 		return next(error);
 	}
@@ -105,7 +106,7 @@ const register = async (req, res, next) => {
 
 		if (!userExist) {
 			const newUser = new User({ ...req.body, confirmationCode });
-			if (!req.file) {
+			if (req.file) {
 				newUser.image = req.file.path;
 			} else {
 				newUser.image = "https://pic.onlinewebfonts.com/svg/img_181369.png";
@@ -189,16 +190,16 @@ const registerWithRedirect = async (req, res, next) => {
 		return next(error);
 	}
 };
+//! -----------------------------------------------------------------------------
+//? ----------------------------LÓGICA PARA MANDAR CÓDIGO -----------------------
+//! -----------------------------------------------------------------------------
+
 const sendCode = async (req, res, next) => {
 	try {
-		/// sacamos el param que hemos recibido por la ruta
-		/// recuerda la ruta: http://localhost:${PORT}/api/v1/users/register/sendMail/${userSave._id}
 		const { id } = req.params;
 
-		/// VAMOS A BUSCAR EL USER POR ID para tener el email y el codigo de confirmacion
 		const userDB = await User.findById(id);
 
-		/// ------------------> envio el codigo
 		const emailEnv = process.env.EMAIL;
 		const password = process.env.PASSWORD;
 
@@ -236,4 +237,39 @@ const sendCode = async (req, res, next) => {
 	}
 };
 
-module.exports = { registerLargo, register, sendCode, registerWithRedirect };
+//! -----------------------------------------------------------------------------
+//? ---------------------------- INICIAR SESIÓN ---------------------------------
+//! -----------------------------------------------------------------------------
+
+const login = async (req, res, next) => {
+	try {
+		const { email, password } = req.body;
+		const userDB = await User.findOne({ email });
+
+		if (userDB) {
+			if (bcrypt.compareSync(password, userDB.password)) {
+				const token = generateToken(userDB._id, email);
+				return res.status(200).json({
+					user: userDB,
+					token,
+				});
+			} else {
+				return res.status(404).json("password dont match");
+			}
+		} else {
+			return res.status(404).json("User no register");
+		}
+	} catch (error) {
+		return next(error);
+	}
+};
+
+//? ---------------------------- EXPORTS ---------------------------------
+
+module.exports = {
+	registerLargo,
+	register,
+	sendCode,
+	registerWithRedirect,
+	login,
+};
