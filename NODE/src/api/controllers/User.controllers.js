@@ -15,6 +15,7 @@ const {
 configDotenv;
 
 const jwt = require("jsonwebtoken");
+const { generateToken } = require("../../utils/token");
 
 const registerLargo = async (req, res, next) => {
 	let catchImg = req.file?.path; /// el optional chaining es para que no rompa en caso de no haber path
