@@ -1,6 +1,7 @@
 const dotenv = require("dotenv");
 dotenv.config();
 const nodemailer = require("nodemailer");
+
 const { setTestEmailSend } = require("../state/state.data");
 
 const sendEmail = (userEmail, name, confirmationCode) => {
