@@ -17,7 +17,7 @@ const CreateBook = async (req, res, next) => {
 		const savedBook = await newBook.save();
 	} catch (error) {
 		return res.status(404).json({
-			error: "error catch create movie",
+			error: "error catch create book",
 			message: error.message,
 		});
 	}
