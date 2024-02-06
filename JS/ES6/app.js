@@ -248,6 +248,9 @@ const streamers = [
 	{name: 'AuronPlay', age: 33, gameMorePlayed: 'Among Us'}
 ];
 
+filter(parametro)
+
+
 <!doctype html>
 <html lang="en">
 <head>
