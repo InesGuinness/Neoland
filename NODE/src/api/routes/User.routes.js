@@ -8,6 +8,8 @@ const {
 	autoLogin,
 	resendCode,
 	checkNewUser,
+	changePassword,
+	sendPassword,
 } = require("../controllers/User.controllers");
 const express = require("express");
 const UserRoutes = express.Router();
@@ -20,9 +22,11 @@ UserRoutes.post("/register", upload.single("image"), registerWithRedirect);
 UserRoutes.post("/resend", resendCode);
 UserRoutes.post("/check", checkNewUser);
 UserRoutes.post("/login", login);
-UserRoutes.post("/autoLogin", autoLogin);
+UserRoutes.post("/login/autologin", autoLogin);
+UserRoutes.patch("/forgotpassword", changePassword);
 
 //! ---------------- endPoints con auth ---------------------------------------
 
 UserRoutes.get("/register/sendMail/:id", sendCode); // :id ---> es el nombre del param
+UserRoutes.patch("/sendPassword/:id", sendPassword);
 module.exports = UserRoutes;
