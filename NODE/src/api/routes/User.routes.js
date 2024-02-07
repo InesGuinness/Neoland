@@ -1,3 +1,4 @@
+const { isAuth, isAuthAdmin } = require("../../middleware/auth.middleware");
 const { upload } = require("../../middleware/files.middleware");
 const {
 	registerLargo,
@@ -10,6 +11,9 @@ const {
 	checkNewUser,
 	changePassword,
 	sendPassword,
+	modifyPassword,
+	deleteUser,
+	update,
 } = require("../controllers/User.controllers");
 const express = require("express");
 const UserRoutes = express.Router();
@@ -26,6 +30,10 @@ UserRoutes.post("/login/autologin", autoLogin);
 UserRoutes.patch("/forgotpassword", changePassword);
 
 //! ---------------- endPoints con auth ---------------------------------------
+UserRoutes.patch("/changepassword", [isAuth], modifyPassword);
+UserRoutes.patch("/update/update", [isAuth], upload.single("image"), update);
+
+/// ------------------> rutas que pueden ser redirect
 
 UserRoutes.get("/register/sendMail/:id", sendCode); // :id ---> es el nombre del param
 UserRoutes.patch("/sendPassword/:id", sendPassword);
