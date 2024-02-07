@@ -16,6 +16,7 @@ configDotenv;
 
 const jwt = require("jsonwebtoken");
 const { generateToken } = require("../../utils/token");
+const enumOk = require("../../utils/enumOk");
 const randomPassword = require("../../utils/randomPassword");
 
 //? -------------------
@@ -554,6 +555,10 @@ const modifyPassword = async (req, res, next) => {
 	   */
 	}
 };
+
+//! -----------------------------------------------------------------------------
+//? ---------------------------- UPDATE  ---------------------------------
+//! -----------------------------------------------------------------------------
 
 const update = async (req, res, next) => {
 	// capturamos la imagen nueva subida a cloudinary
