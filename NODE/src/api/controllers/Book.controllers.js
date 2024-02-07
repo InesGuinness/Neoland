@@ -59,7 +59,7 @@ const getById = async (req, res, next) => {
 
 const getAll = async (req, res, next) => {
 	try {
-		const allBook = await Book.find().populate("movies");
+		const allBook = await Book.find().populate("Writer");
 		/** el find nos devuelve un array */
 		if (allBook.length > 0) {
 			return res.status(200).json(allBook);
