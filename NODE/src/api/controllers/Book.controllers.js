@@ -1,4 +1,5 @@
 const Book = require("../models/Book.models");
+const Writer = require("../models/Writer.models");
 
 //! ---------------------------------------------------------------------
 //? ----------------------------   CREATE   --------------
@@ -14,7 +15,7 @@ const CreateBook = async (req, res, next) => {
 			name: req.body.name,
 			published: req.body.published,
 			image: req.body.image,
-			Writer: req.body.books, //  books and likes are arrays of ObjectIds
+			writers: req.body.books, //  books and likes are arrays of ObjectIds
 			likes: req.body.likes,
 		};
 		const newBook = new Book(customBody);
@@ -29,6 +30,86 @@ const CreateBook = async (req, res, next) => {
 		return (
 			res.status(404).json({
 				error: "error catch create book",
+				message: error.message,
+			}) && next(error)
+		);
+	}
+};
+
+//! ---------------------------------------------------------------------
+//? ----------------------------   TOGGLE  --------------
+//! ---------------------------------------------------------------------
+
+const toggleWriter = async (req, res, next) => {
+	try {
+		const { id } = req.params;
+		const { writers } = req.body;
+		const bookById = await Book.findById(id);
+
+		if (bookById) {
+			const arrayIdWriters = writers.split(",");
+
+			Promise.all(
+				arrayIdWriters.map(async (writer, index) => {
+					if (bookById.Writer.includes(writer)) {
+						try {
+							await Book.findByIdAndUpdate(id, {
+								$pull: { writers: writer },
+							});
+
+							try {
+								await Writer.findByIdAndUpdate(writer, {
+									$pull: { books: id },
+								});
+							} catch (error) {
+								res.status(404).json({
+									error: "error update writer",
+									message: error.message,
+								}) && next(error);
+							}
+						} catch (error) {
+							res.status(404).json({
+								error: "error update book",
+								message: error.message,
+							}) && next(error);
+						}
+					} else {
+						try {
+							await Book.findByIdAndUpdate(id, {
+								$push: { writers: writer },
+							});
+							try {
+								await Writer.findByIdAndUpdate(writer, {
+									$push: { books: id },
+								});
+							} catch (error) {
+								res.status(404).json({
+									error: "error update writer",
+									message: error.message,
+								}) && next(error);
+							}
+						} catch (error) {
+							res.status(404).json({
+								error: "error update book",
+								message: error.message,
+							}) && next(error);
+						}
+					}
+				})
+			)
+				.catch((error) => res.status(404).json(error.message))
+				.then(async () => {
+					return res.status(200).json({
+						dataUpdate: await Book.findById(id).populate("writers"),
+					});
+				});
+		} else {
+			return res.status(404).json("este libro no existe");
+		}
+	} catch (error) {
+		return (
+			res.status(404).json({
+				error: "error catch",
 				message: error.message,
 			}) && next(error)
 		);
@@ -177,4 +258,11 @@ const update = async (req, res, next) => {
 //! ---------------------------------------------------------------------
 //? ------------------------------- EXPORTS ------------------------------
 //! ------------------------------------------------------------
-module.exports = { CreateBook, getById, getAll, getByName, update };
+module.exports = {
+	CreateBook,
+	getById,
+	getAll,
+	getByName,
+	update,
+	toggleWriter,
+};
