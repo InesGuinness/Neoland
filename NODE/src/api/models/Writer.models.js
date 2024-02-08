@@ -19,7 +19,7 @@ const WriterSchema = new Schema(
 			type: String,
 			required: false,
 		},
-		books: [{ type: mongoose.Schema.Types.ObjectId, ref: "Books" }],
+		books: [{ type: mongoose.Schema.Types.ObjectId, ref: "Book" }],
 		likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 	},
 	{ timestamps: true }

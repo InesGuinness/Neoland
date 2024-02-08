@@ -12,7 +12,7 @@ const BookSchema = new Schema(
 			type: String,
 			required: false,
 		},
-		Writer: [{ type: mongoose.Schema.Types.ObjectId, ref: "Writer" }],
+		writers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Writer" }],
 		likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 	},
 	{ timestamps: true }

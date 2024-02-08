@@ -51,7 +51,7 @@ const toggleWriter = async (req, res, next) => {
 
 			Promise.all(
 				arrayIdWriters.map(async (writer, index) => {
-					if (bookById.Writer.includes(writer)) {
+					if (bookById.writers.includes(writer)) {
 						try {
 							await Book.findByIdAndUpdate(id, {
 								$pull: { writers: writer },

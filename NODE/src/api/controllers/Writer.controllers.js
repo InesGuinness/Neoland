@@ -1,3 +1,4 @@
+const Book = require("../models/Book.models");
 const Writer = require("../models/Writer.models");
 
 const createWriter = async (req, res, next) => {
@@ -39,6 +40,8 @@ const createWriter = async (req, res, next) => {
 //! ---------------------------------------------------------------------
 
 const toggleBook = async (req, res, next) => {
+	let catchImg = req.file?.path; /// el optional chaining es para que no rompa en caso de no haber path
+
 	try {
 		const { id } = req.params;
 		const { books } = req.body;
