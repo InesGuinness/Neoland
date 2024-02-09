@@ -21,6 +21,7 @@ const WriterSchema = new Schema(
 		},
 		books: [{ type: mongoose.Schema.Types.ObjectId, ref: "Book" }],
 		likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+		comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Message" }],
 	},
 	{ timestamps: true }
 );

@@ -12,6 +12,7 @@ const BookSchema = new Schema(
 			type: String,
 			required: false,
 		},
+		comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "Message" }],
 		writers: [{ type: mongoose.Schema.Types.ObjectId, ref: "Writer" }],
 		likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 	},

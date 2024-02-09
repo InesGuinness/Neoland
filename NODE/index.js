@@ -38,6 +38,9 @@ app.use("/api/v1/writer/", WriterRoutes);
 const BookRoutes = require("./src/api/routes/Book.routes");
 app.use("/api/v1/book/", BookRoutes);
 
+const MessageRoutes = require("./src/api/routes/Message.routes");
+app.use("/api/v1/message/", MessageRoutes);
+
 //! -------------------> generamos un error de cuando no see encuentre la ruta
 app.use("*", (req, res, next) => {
 	const error = new Error("Route not found");

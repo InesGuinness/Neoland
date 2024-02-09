@@ -46,6 +46,17 @@ const UserSchema = new mongoose.Schema(
 		image: {
 			type: String,
 		},
+		WriterFav: [{ type: mongoose.Schema.Types.ObjectId, ref: "Writer" }],
+		BookFav: [{ type: mongoose.Schema.Types.ObjectId, ref: "Book" }],
+		followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+		followed: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+		chats: [{ type: mongoose.Schema.Types.ObjectId, ref: "Chat" }],
+		banned: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+		blockedByApp: { type: Boolean, default: false },
+		commentsPublicByOther: [
+			{ type: mongoose.Schema.Types.ObjectId, ref: "Message" },
+		],
+		postedMessages: [{ type: mongoose.Schema.Types.ObjectId, ref: "Message" }],
 		/// cuando relacionamos un modelo de con otro lo hacemos con populate y el ref a otro modelo
 	},
 	{
