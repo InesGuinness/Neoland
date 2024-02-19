@@ -1,6 +1,6 @@
 const Writer = require("../models/Writer.models");
 const Chat = require("../models/Chat.model");
-const Menssage = require("../models/Message.models");
+const Message = require("../models/Message.models");
 const Book = require("../models/Book.models");
 const User = require("../models/User.models");
 
@@ -18,7 +18,7 @@ const createMessage = async (req, res, next) => {
 		const findWriter = await Writer.findById(idRecipient);
 
 		if (findUser) {
-			const newMessage = new Menssage(req.body);
+			const newMessage = new Message(req.body);
 			const savedMessage = await newMessage.save();
 			if (type == "private") {
 				try {
@@ -44,7 +44,7 @@ const createMessage = async (req, res, next) => {
 								});
 							} catch (error) {
 								try {
-									await Menssage.findByIdAndDelete(savedMessage._id);
+									await Message.findByIdAndDelete(savedMessage._id);
 									return res
 										.status(404)
 										.json(
@@ -70,7 +70,7 @@ const createMessage = async (req, res, next) => {
 								});
 							} catch (error) {
 								try {
-									await Menssage.findByIdAndDelete(savedMessage._id);
+									await Message.findByIdAndDelete(savedMessage._id);
 									return res
 										.status(404)
 										.json(
@@ -100,7 +100,7 @@ const createMessage = async (req, res, next) => {
 							});
 						} catch (error) {
 							try {
-								await Menssage.findByIdAndDelete(savedMessage._id);
+								await Message.findByIdAndDelete(savedMessage._id);
 								return res
 									.status(404)
 									.json(
@@ -121,7 +121,7 @@ const createMessage = async (req, res, next) => {
 			} else if (type == "public") {
 				// SIMPLEMENTE CREAMOS EL COMENTARIO Y LO METEMOS EN LOS ARRAY DE LOS MODELOS AL QUE CORRESPONDA -- USER
 			} else {
-				await Menssage.findByIdAndDelete(savedMessage._id);
+				await Message.findByIdAndDelete(savedMessage._id);
 				return res.status(404).json(error.message);
 			}
 		} else if (findBook) {
