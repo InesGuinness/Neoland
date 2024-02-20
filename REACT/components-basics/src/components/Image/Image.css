@@ -1,0 +1,10 @@
+/* Style the image */
+img {
+    max-width: 100%; 
+    height: auto; 
+    display: inline; 
+    margin: 0 auto; 
+    border-radius: 200px; 
+    box-shadow: 0 5px 4px rgba(0, 0, 0, 0.5); 
+  }
+  

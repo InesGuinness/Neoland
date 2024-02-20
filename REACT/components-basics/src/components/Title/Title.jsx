@@ -1,3 +1,4 @@
+import "./Title.css";
 /**
  * Componente Title ⇒ Crea un componente Title que retorne un <h1> con el texto “Welcome to Components ReactJS”.
  */
