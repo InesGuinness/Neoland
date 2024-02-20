@@ -2,7 +2,7 @@
 
 import PropTypes from "prop-types";
 
-const Header = (children) => {
+const Footer = (children) => {
 	return (
 		<div>
 			<span>Adress</span>
@@ -11,8 +11,9 @@ const Header = (children) => {
 		</div>
 	);
 };
+
 Main.propTypes = {
 	children: PropTypes.node.isRequired,
 };
 
-export default Header;
+export default Footer;
