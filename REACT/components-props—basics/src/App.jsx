@@ -1,12 +1,6 @@
-import "./App.css";
-import Main from "./components/Main/Main";
-import TitleWithImage from "./components/TitleWithImage/TitleWithImage";
+import { Header, Main, Footer } from "./components/index";
 
 const App = () => {
-	return (
-		<Main>
-			<TitleWithImage></TitleWithImage>
-		</Main>
-	);
+	return (<Main></Main>), (<Header></Header>), (<Footer></Footer>);
 };
 export default App;
