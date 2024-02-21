@@ -1,4 +1,5 @@
-const Main = ({ children }) => {
-	return <main>{children} Header </main>;
+import "./Main.css";
+
+export const Main = ({ children }) => {
+	return <main>{children}</main>;
 };
-export default Main;

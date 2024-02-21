@@ -1,9 +1,5 @@
-const Title = () => {
-	return (
-		<>
-			<h1>Welcome to Components ReactJS</h1>
-		</>
-	);
-};
+import "./Title.css";
 
-export default Title;
+export const Title = ({ title }) => {
+	return <h1>{title}</h1>;
+};

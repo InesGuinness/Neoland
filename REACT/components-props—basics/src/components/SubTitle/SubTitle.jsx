@@ -1,9 +1,5 @@
-const Subtitle = () => {
-	return (
-		<>
-			<h2>This is a example components with ReactJS</h2>
-		</>
-	);
-};
+import "./SubTitle.css";
 
-export default Subtitle;
+export const Subtitle = ({ texto }) => {
+	return <h2>{texto}</h2>;
+};

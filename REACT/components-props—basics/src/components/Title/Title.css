@@ -1,0 +1,10 @@
+/* Title Styles */
+h1 {
+    font-size: 36px; /* Font size */
+    font-weight: bold; /* Bold font weight */
+    color: #333; /* Text color */
+    text-align: center; /* Center align text */
+    margin-top: 20px; /* Top margin */
+    margin-bottom: 20px; /* Bottom margin */
+  }
+  
