@@ -17,19 +17,16 @@ const App = () => {
 
 	return (
 		<>
-			{characterList.map((character) => {
-				if (character.status === "Alive") {
-					return (
-						<div key={character.id}>
-							<h2>{character.name}</h2>
-							<p>{character.id} </p>
-							<img src={character.image} alt={character.name} />
-							<p>{character.location.name}</p>
-						</div>
-					);
-				}
-				return null;
-			})}
+			{characterList.map((character) =>
+				character.status === "Alive" ? (
+					<div key={character.id}>
+						<h2>{character.name}</h2>
+						<p>{character.id} </p>
+						<img src={character.image} alt={character.name} />
+						<p>{character.location.name}</p>
+					</div>
+				) : null
+			)}
 		</>
 	);
 };
