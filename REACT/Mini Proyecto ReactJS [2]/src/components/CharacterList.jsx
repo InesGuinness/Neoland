@@ -1,5 +1,6 @@
 import React from "react";
 import Cardd from "./Cardd";
+import "./CharacterList.css";
 
 export const CharacterList = () => {
 	const [characterList, setCharacterList] = React.useState([]);
